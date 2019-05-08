@@ -42,8 +42,8 @@ public class WallBuilder : MonoBehaviour {
             zincrease = 30;
         }
 
-        int x = -10;
-        int z = -10;
+        int x = 15;
+        int z = 15;
         for (int i = 0; i < points.Length; i++) {
             Transform point = Instantiate(pointPreFabTree);
             point.SetParent(transform, false);
