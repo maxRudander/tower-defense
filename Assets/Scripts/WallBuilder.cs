@@ -6,8 +6,11 @@ public class WallBuilder : MonoBehaviour {
     public Transform pointPreFabTree; //första trädet
     [Range(1, 100)]
     public int numberOfTrees = 10;
-    public string wall = "n";
+    [Range(1,100)]
+    public int distanceBetweenTrees = 30;
     private Transform[] points;
+    public bool Horizontal = true;
+    public bool Vertical = false; 
 
 
     // Start is called before the first frame update
@@ -18,8 +21,6 @@ public class WallBuilder : MonoBehaviour {
 
     }
     private void Awake() {
-        Debug.Log("start");
-
         points = new Transform[numberOfTrees];
         BuildWall();
     }
@@ -31,19 +32,15 @@ public class WallBuilder : MonoBehaviour {
     void BuildWall() {
         int xincrease = 0;
         int zincrease = 0;
-        Debug.Log("BuildWall");
-        if (wall.Equals("n")) { //NORTH
-            xincrease = 30;
-        } else if (wall.Equals("s")) {// SOUTH
-            xincrease = 30;
-        } else if (wall.Equals("w")) {//WEST
-            zincrease = 30;
-        } else if (wall.Equals("e")) { //EAST
-            zincrease = 30;
+        if (Horizontal && !Vertical) {
+            xincrease = distanceBetweenTrees;
         }
-
-        int x = 15;
-        int z = 15;
+        else if (Vertical && !Horizontal) {
+            zincrease = distanceBetweenTrees;
+        }
+        
+        int x = distanceBetweenTrees/2;
+        int z = distanceBetweenTrees/2;
         for (int i = 0; i < points.Length; i++) {
             Transform point = Instantiate(pointPreFabTree);
             point.SetParent(transform, false);
