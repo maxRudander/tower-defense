@@ -19,34 +19,14 @@ public class FirstTryShooting : MonoBehaviour {
             GameObject instBullet = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody instBulletRigidBody = instBullet.GetComponent<Rigidbody>();
             instBulletRigidBody.AddForce(target.transform.position * bulletSpeed);
-            instBulletRigidBody.AddForce(Vector3.forward * bulletSpeed);
+     //       instBulletRigidBody.AddForce(Vector3.forward * bulletSpeed);
 
             //Destroy(instBullet, 3.0f);
 
-
-
-
-            //    Vector3 dir = target.transform.position - instBulletRigidBody.transform.localPosition;
-
-            //float distThisFrame = bulletSpeed * Time.deltaTime;
-
-            //if (dir.magnitude <= distThisFrame) {
-            //    // We reached the node
-            //    Debug.Log("HIT!");
-            //} else {
-            //    // TODO: Consider ways to smooth this motion.
-
-            //    //Move towards node
-            //    target.transform.Translate(dir.normalized * distThisFrame, Space.World);
-            //    Quaternion targetRotation = Quaternion.LookRotation(dir);
-            //    instBulletRigidBody.transform.rotation = Quaternion.Lerp(instBulletRigidBody.transform.rotation, targetRotation, Time.deltaTime * 5);
-
-
-
-
+        
 
 
         }
     }
-    }
 }
+
