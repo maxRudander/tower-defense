@@ -26,15 +26,10 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.S))
         {
            var obj = Instantiate(skeleton, transform.position, Quaternion.identity);
            obj.GetComponent<Skeleton>().setGoal(goals);
-
-            //skeleton.GetComponent<>()
-
-            //    setGoal(goal1);
-
         }
     }
 }
