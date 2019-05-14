@@ -31,12 +31,7 @@ public class FirstTryShooting : MonoBehaviour {
             if (nearestSkeleton == null || currentDistance < distance) {
                 nearestSkeleton = enemies[i];
                 distance = currentDistance;
-
-                
-                
-                
             }
-
         }
         if (nearestSkeleton == null) {
             //Debug.Log("No skeletons found!");

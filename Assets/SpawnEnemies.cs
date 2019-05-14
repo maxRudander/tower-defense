@@ -10,6 +10,8 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject goal3 = null;
     public GameObject goal4 = null;
     public GameObject goal5 = null;
+    public int numberOfSkeletonsToSpawn = 5;
+    private int nbrOfSpawnedSkeletons;
     private GameObject[] goals;
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class SpawnEnemies : MonoBehaviour
         goals[2] = goal3;
         goals[3] = goal4;
         goals[4] = goal5;
+        nbrOfSpawnedSkeletons = 0;
     }
 
     // Update is called once per frame
@@ -28,8 +31,18 @@ public class SpawnEnemies : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-           var obj = Instantiate(skeleton, transform.position, Quaternion.identity);
-           obj.GetComponent<Skeleton>().setGoal(goals);
+            InvokeRepeating("spawnSkeletons", 2.0f, 1.0f);
+        }
+    }
+
+    void spawnSkeletons()
+    {
+        var obj = Instantiate(skeleton, transform.position, Quaternion.identity);
+        obj.GetComponent<Skeleton>().setGoal(goals);
+        nbrOfSpawnedSkeletons++;
+        if (nbrOfSpawnedSkeletons >= numberOfSkeletonsToSpawn)
+        {
+            CancelInvoke("spawnSkeletons");
         }
     }
 }

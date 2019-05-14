@@ -659,6 +659,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &308482431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165880, guid: f4f6b630159e6b34386dec2579f250b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1104096641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &308482432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471166, guid: f4f6b630159e6b34386dec2579f250b2,
@@ -1440,7 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d60c9b64a1abd741a447b611d26749b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 165880, guid: f4f6b630159e6b34386dec2579f250b2, type: 3}
+  towerPrefab: {fileID: 308482431}
 --- !u!4 &779456355
 Transform:
   m_ObjectHideFlags: 0
