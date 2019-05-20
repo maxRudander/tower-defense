@@ -17,7 +17,7 @@ public class bulletTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (target)
         {
             LookAtBul.transform.LookAt(target);
@@ -29,22 +29,26 @@ public class bulletTower : MonoBehaviour
     {
         if (other.gameObject.transform == target)
         {
-            
-            
+
+
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < enemies.Length; i++)
             {
+
                 GameObject enemy = enemies[i];
-                float dist = Vector3.Distance(other.transform.position, transform.position);
-                Debug.Log(dist);
-                
-                if (dist<=aoe)
+                if (!enemy.gameObject.transform.Equals(target))
                 {
-                    Debug.Log("AOE");
-                    Destroy(enemy.gameObject);
+                    float dist = Vector3.Distance(other.transform.position, enemy.transform.position);
+                    Debug.Log(dist);
+
+                    if (dist <= aoe)
+                    {
+                        enemy.GetComponent<Skeleton>().hpCurrent -= 10;
+                    }
                 }
             }
-            Destroy(other.gameObject);
+            other.GetComponent<Skeleton>().hpCurrent -= 10;
+            Debug.Log(other.GetComponent<Skeleton>().hpCurrent);
             Destroy(gameObject);
         }
     }
