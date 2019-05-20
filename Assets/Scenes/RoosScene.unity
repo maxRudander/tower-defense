@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -2090,7 +2090,8 @@ PrefabInstance:
       propertyPath: goal7
       value: 
       objectReference: {fileID: 1417485149}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2456325122437214549, guid: cd3934174c85c754786542aab0fc2ba9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd3934174c85c754786542aab0fc2ba9, type: 3}
 --- !u!1001 &879068245
 PrefabInstance:
@@ -2762,6 +2763,35 @@ MonoBehaviour:
   numberOfRows: 1
   Horizontal: 1
   Vertical: 0
+--- !u!1 &1180599500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456325122437214548, guid: cd3934174c85c754786542aab0fc2ba9,
+    type: 3}
+  m_PrefabInstance: {fileID: 870523535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1180599501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180599500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29136b2b65d46674894df6a90958ca40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeleton: {fileID: 7459370296108658861, guid: 3ea1006c03b01474993e8da5fc9f4a6f,
+    type: 3}
+  goal1: {fileID: 83130491}
+  goal2: {fileID: 255831677}
+  goal3: {fileID: 0}
+  goal4: {fileID: 0}
+  goal5: {fileID: 0}
+  goal6: {fileID: 0}
+  goal7: {fileID: 0}
+  goal8: {fileID: 1698629882}
+  numberOfSkeletonsToSpawn: 10
 --- !u!1 &1182551885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 182368, guid: f4f6b630159e6b34386dec2579f250b2,
