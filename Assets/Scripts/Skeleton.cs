@@ -9,7 +9,7 @@ public class Skeleton : MonoBehaviour
     public GameObject target;
     public GameObject[] goals;
     private int goalIndex = 0;
-    private float leastDistance = 0.2f;
+    private float leastDistance = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,15 @@ public class Skeleton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < leastDistance)
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+        Vector3 targetDir = target.transform.position - transform.position;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
+        Animator an = this.gameObject.GetComponent<Animator>();
+        an.SetBool("Running", true);
+
+        if (Vector3.Distance(transform.position, target.transform.position) <= leastDistance)
         {
             if (goalIndex == (goals.Length-1))
             {
@@ -39,7 +47,6 @@ public class Skeleton : MonoBehaviour
             }
         }
 
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+
     }
 }

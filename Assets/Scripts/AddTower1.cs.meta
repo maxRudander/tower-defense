@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: d6888a70ef8d17848aaece5c0cf8636b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - canonTower: {fileID: 165880, guid: f4f6b630159e6b34386dec2579f250b2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
