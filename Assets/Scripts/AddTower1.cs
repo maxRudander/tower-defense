@@ -14,7 +14,7 @@ public class AddTower1 : MonoBehaviour
     public GameObject iceTower;
     public GameObject gameManager;
 
-    public float offset = 2.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class AddTower1 : MonoBehaviour
 
     }
 
-    public static IEnumerator WaitInput(bool wait, GameObject towerToAdd, float offset, int price, Color color)
+    public static IEnumerator WaitInput(bool wait, GameObject towerToAdd, int price, Color color)
     {
         Debug.Log("In Enum");
         while (wait)
@@ -41,8 +41,8 @@ public class AddTower1 : MonoBehaviour
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask))
                 {
-                    Debug.Log(hit.point + " " + hit.normal * offset);
-                    towerToAdd.transform.position = hit.point + hit.normal * offset;
+                    Debug.Log(hit.point + " ");
+                    towerToAdd.transform.position = hit.point;
                     GameObject tower = Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
                     tower.transform.GetChild(0).transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", color);
                     tower.transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_Color", color);
@@ -66,17 +66,17 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-            StartCoroutine(WaitInput(true, canonTower, offset, 10, Color.red));
+            StartCoroutine(WaitInput(true, canonTower, 10, Color.red));
     }
 
     public void addArrowTower()
     {
-        StartCoroutine(WaitInput(true, arrowTower, offset, 20, Color.green));
+        StartCoroutine(WaitInput(true, arrowTower, 20, Color.green));
     }
 
     public void addIceTower()
     {
-        StartCoroutine(WaitInput(true, iceTower, offset, 20, Color.blue));
+        StartCoroutine(WaitInput(true, iceTower, 20, Color.blue));
     }
     // Update is called once per frame
     void Update()

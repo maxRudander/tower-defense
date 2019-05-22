@@ -70,6 +70,7 @@ public class Tower : MonoBehaviour
         b.GetComponent<bulletTower>().slowAmout = slowAmout;
         b.GetComponent<bulletTower>().slowDuration = slowDuration;
 
+
         this.shotsFired++;
 
         Debug.Log(gameObject + "\nshotsFired: " + shotsFired + "Kills: " + kills + "Total Dmg" + totalDmgDone);

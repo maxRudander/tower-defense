@@ -18,15 +18,17 @@ public class bulletTower : MonoBehaviour
     public float slowAmout;
 
     public float slowDuration;
+
+
+
+
     void Update()
     {
-
         if (target)
         {
             LookAtBul.transform.LookAt(target);
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * Speed);
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -47,7 +49,7 @@ public class bulletTower : MonoBehaviour
                         {
                             enemy.GetComponent<NavMeshAgent>().speed = 1;
                             enemy.GetComponent<Skeleton>().currentMovementSpeed = enemy.GetComponent<NavMeshAgent>().speed;
-                            enemy.GetComponent<Skeleton>().slowDuration = slowDuration/1000;
+                            enemy.GetComponent<Skeleton>().slowDuration = slowDuration / 1000;
                         }
                         twr.totalDmgDone += aoeDmg;
                     }
@@ -55,9 +57,9 @@ public class bulletTower : MonoBehaviour
             }
             if (!other.GetComponent<Skeleton>().isSlowed)
             {
-                other.GetComponent<NavMeshAgent>().speed *=slowAmout;
+                other.GetComponent<NavMeshAgent>().speed *= slowAmout;
                 other.GetComponent<Skeleton>().currentMovementSpeed = other.GetComponent<NavMeshAgent>().speed;
-                other.GetComponent<Skeleton>().slowDuration = slowDuration/1000;
+                other.GetComponent<Skeleton>().slowDuration = slowDuration / 1000;
             }
             other.GetComponent<Skeleton>().hpCurrent -= dmg;
             other.GetComponent<Skeleton>().lastBulletHit = gameObject;
