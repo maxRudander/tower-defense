@@ -9,12 +9,20 @@ public class Skeleton : MonoBehaviour
    public int hpCurrent;
    public int level;
 
+   public int movementSpeed = 25;
+
+   public float currentMovementSpeed;
+
+   public float slowDuration;
+   
+   public bool isSlowed;
+
    public GameObject lastBulletHit;
 
-   // Start is called before the first frame update
    void Start()
    {
-
+       currentMovementSpeed = movementSpeed;
+       this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
    }
 
    public void SetHpBasedOnLevel(int level)
@@ -33,10 +41,25 @@ public class Skeleton : MonoBehaviour
    {
        Animator an = this.gameObject.GetComponent<Animator>();
        an.SetBool("Running", true);
+
+        if(currentMovementSpeed != movementSpeed){
+            isSlowed = true;
+            slowDuration -= Time.deltaTime;
+            Debug.Log(slowDuration);
+            if(slowDuration < 0){
+                currentMovementSpeed = movementSpeed;
+                isSlowed = false;
+                this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
+                slowDuration = 1;
+            }
+        }
+
+
        if(hpCurrent <= 0){
            lastBulletHit.GetComponent<bulletTower>().updateTowerKills();
            Destroy(gameObject);
        }
-
    }
+
+   
 }
