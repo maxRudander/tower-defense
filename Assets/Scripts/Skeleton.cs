@@ -9,6 +9,8 @@ public class Skeleton : MonoBehaviour
    public int hpCurrent;
    public int level;
 
+   public GameObject lastBulletHit;
+
    // Start is called before the first frame update
    void Start()
    {
@@ -31,6 +33,10 @@ public class Skeleton : MonoBehaviour
    {
        Animator an = this.gameObject.GetComponent<Animator>();
        an.SetBool("Running", true);
+       if(hpCurrent <= 0){
+           lastBulletHit.GetComponent<bulletTower>().updateTowerKills();
+           Destroy(gameObject);
+       }
 
    }
 }

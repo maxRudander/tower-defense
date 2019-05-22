@@ -27,15 +27,21 @@ public class AddTower1 : MonoBehaviour
         Debug.Log("In Enum");
         while (wait)
         {
-            if (Input.anyKeyDown)
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("In RIGHTBTN");
+                yield return null;
+            }
+            if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-                int layerMask = 1 << 9;
+                int layerMask = 1 << 10;
                 layerMask = ~layerMask;
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask))
                 {
-                    Debug.Log(hit.point +" " + hit.normal * offset);
+                    Debug.Log(hit.point + " " + hit.normal * offset);
                     towerToAdd.transform.position = hit.point + hit.normal * offset;
                     Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
                     GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
@@ -43,7 +49,6 @@ public class AddTower1 : MonoBehaviour
                     Text money = GameObject.Find("txtMoney").GetComponent<Text>();
                     money.text = gm.money.ToString();
                 }
-
                 wait = false;
             }
             yield return null;
@@ -57,7 +62,7 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-        StartCoroutine(WaitInput(true, canonTower, offset, 10));
+            StartCoroutine(WaitInput(true, canonTower, offset, 10));
     }
 
     public void addArrowTower()

@@ -11,7 +11,9 @@ public class bulletTower : MonoBehaviour
 
     public int dmg;
 
-    public float aoe;
+    public float aoeSize;
+
+    public int aoeDmg;
     // Use this for initialization
 
     // Update is called once per frame
@@ -29,28 +31,30 @@ public class bulletTower : MonoBehaviour
     {
         if (other.gameObject.transform == target)
         {
-
-
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < enemies.Length; i++)
             {
-
                 GameObject enemy = enemies[i];
                 if (!enemy.gameObject.transform.Equals(target))
                 {
                     float dist = Vector3.Distance(other.transform.position, enemy.transform.position);
-                    Debug.Log(dist);
-
-                    if (dist <= aoe)
+                    if (dist <= aoeSize)
                     {
-                        enemy.GetComponent<Skeleton>().hpCurrent -= 10;
+                        enemy.GetComponent<Skeleton>().lastBulletHit = gameObject;
+                        enemy.GetComponent<Skeleton>().hpCurrent -= aoeDmg;
+                        twr.totalDmgDone += aoeDmg;
                     }
                 }
             }
-            other.GetComponent<Skeleton>().hpCurrent -= 10;
-            Debug.Log(other.GetComponent<Skeleton>().hpCurrent);
-            Destroy(gameObject);
+            other.GetComponent<Skeleton>().hpCurrent -= dmg;
+            other.GetComponent<Skeleton>().lastBulletHit = gameObject;
+            twr.totalDmgDone += dmg;
         }
+    }
+
+    public void updateTowerKills(){
+        twr.kills++;
+        Destroy(gameObject);
     }
 
 }
