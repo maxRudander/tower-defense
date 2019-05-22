@@ -66,12 +66,12 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-            StartCoroutine(WaitInput(true, canonTower, offset, 10, Color.green));
+            StartCoroutine(WaitInput(true, canonTower, offset, 10, Color.red));
     }
 
     public void addArrowTower()
     {
-        StartCoroutine(WaitInput(true, arrowTower, offset, 20, Color.red));
+        StartCoroutine(WaitInput(true, arrowTower, offset, 20, Color.green));
     }
 
     public void addIceTower()

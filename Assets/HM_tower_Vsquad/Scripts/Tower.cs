@@ -60,7 +60,7 @@ public class Tower : MonoBehaviour
     IEnumerator shoot()
     {
         isShoot = true;
-        yield return new WaitForSeconds(100 / attackSpeed);
+        yield return new WaitForSeconds(1000 / attackSpeed);
         GameObject b = GameObject.Instantiate(bullet, shootElement.position, Quaternion.identity) as GameObject;
         b.GetComponent<bulletTower>().twr = this;
         b.GetComponent<bulletTower>().target = target;

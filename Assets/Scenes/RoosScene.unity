@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canonTower: {fileID: 1674050128692650, guid: 3157bcd75a4a1d149b7abd61fa89b93e, type: 3}
-  arrowTower: {fileID: 0}
+  arrowTower: {fileID: 1674050128692650, guid: 51615803eaaf3034b8b5cb468ccc23a4, type: 3}
   iceTower: {fileID: 1674050128692650, guid: 7204a8233cf4c6846b00e834cae00fb5, type: 3}
   gameManager: {fileID: 779456353}
   offset: 2
