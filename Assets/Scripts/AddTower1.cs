@@ -8,6 +8,10 @@ public class AddTower1 : MonoBehaviour
 
 
     public GameObject canonTower;
+
+    public GameObject arrowTower;
+
+    public GameObject canonTower2;
     public GameObject gameManager;
 
     public float offset = 2.0f;
@@ -15,7 +19,7 @@ public class AddTower1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canonTower = GameObject.FindWithTag("CanonTower");
+
     }
 
     public static IEnumerator WaitInput(bool wait, GameObject towerToAdd, float offset, int price)
@@ -26,8 +30,12 @@ public class AddTower1 : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 RaycastHit hit;
+                int layerMask = 1 << 9;
+                layerMask = ~layerMask;
 
-                if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit)){
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask))
+                {
+                    Debug.Log(hit.point +" " + hit.normal * offset);
                     towerToAdd.transform.position = hit.point + hit.normal * offset;
                     Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
                     GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
@@ -44,19 +52,22 @@ public class AddTower1 : MonoBehaviour
 
     public void StartWaiting()
     {
-        Debug.Log("On BTN click");
-        StartCoroutine(WaitInput(true, canonTower, offset, 0));
-        Debug.Log("After Enum");
+
     }
 
-    public void addCanonTower(){
-        canonTower = GameObject.FindWithTag("CanonTower");
+    public void addCanonTower()
+    {
         StartCoroutine(WaitInput(true, canonTower, offset, 10));
     }
 
-    public void addFireTower(){
-        canonTower = GameObject.FindWithTag("CanonTower");
-        StartCoroutine(WaitInput(true, canonTower, offset, 20));
+    public void addArrowTower()
+    {
+        StartCoroutine(WaitInput(true, arrowTower, offset, 20));
+    }
+
+    public void addCanonTower2()
+    {
+        StartCoroutine(WaitInput(true, canonTower2, offset, 20));
     }
     // Update is called once per frame
     void Update()
