@@ -1015,7 +1015,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143997012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1630530503}
+        m_MethodName: addIceTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1143997012
@@ -1242,10 +1253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6888a70ef8d17848aaece5c0cf8636b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canonTower: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-  arrowTower: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-  canonTower2: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd,
-    type: 3}
+  canonTower: {fileID: 1674050128692650, guid: 3157bcd75a4a1d149b7abd61fa89b93e, type: 3}
+  arrowTower: {fileID: 0}
+  iceTower: {fileID: 1674050128692650, guid: 7204a8233cf4c6846b00e834cae00fb5, type: 3}
   gameManager: {fileID: 779456353}
   offset: 2
 --- !u!1001 &1698629881

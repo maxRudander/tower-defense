@@ -4928,6 +4928,8 @@ MonoBehaviour:
   dmg: 0
   aoeSize: 0
   aoeDmg: 0
+  slowAmout: 0
+  slowDuration: 0
 --- !u!65 &65469915428151416
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14709,7 +14711,7 @@ GameObject:
   - component: {fileID: 114231757648547274}
   - component: {fileID: 3189264850835006037}
   m_Layer: 9
-  m_Name: HM_cannon_1
+  m_Name: IceTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14723,7 +14725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 871.2151, y: 2, z: 606.16656}
+  m_LocalPosition: {x: 845.81305, y: 2, z: 355.93228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -14746,11 +14748,13 @@ MonoBehaviour:
   LookAtObj: {fileID: 4165866241402844}
   bullet: {fileID: 1160152353821232}
   target: {fileID: 0}
-  dmg: 10
-  attackSpeed: 1000
+  dmg: 1
+  attackSpeed: 100
   range: 100
-  aoeDmg: 50
-  aoeSize: 100
+  aoeDmg: 1
+  aoeSize: 1000
+  slowAmout: 0.1
+  slowDuration: 500
   kills: 0
   shotsFired: 0
   totalDmgDone: 0

@@ -19,14 +19,21 @@ public class Tower : MonoBehaviour
 
     public float aoeSize;
 
+    public float slowAmout = 1;
+    public float slowDuration = 1000;
+
     public int kills;
 
     public int shotsFired;
 
     public int totalDmgDone;
+
+    private int towerLevel;
+
     bool isShoot;
     void Start()
     {
+        towerLevel = 1;
         updateRange();
     }
 
@@ -60,6 +67,9 @@ public class Tower : MonoBehaviour
         b.GetComponent<bulletTower>().dmg = dmg;
         b.GetComponent<bulletTower>().aoeSize = aoeSize;
         b.GetComponent<bulletTower>().aoeDmg = aoeDmg;
+        b.GetComponent<bulletTower>().slowAmout = slowAmout;
+        b.GetComponent<bulletTower>().slowDuration = slowDuration;
+
         this.shotsFired++;
 
         Debug.Log(gameObject + "\nshotsFired: " + shotsFired + "Kills: " + kills + "Total Dmg" + totalDmgDone);

@@ -11,7 +11,7 @@ public class AddTower1 : MonoBehaviour
 
     public GameObject arrowTower;
 
-    public GameObject canonTower2;
+    public GameObject iceTower;
     public GameObject gameManager;
 
     public float offset = 2.0f;
@@ -22,7 +22,7 @@ public class AddTower1 : MonoBehaviour
 
     }
 
-    public static IEnumerator WaitInput(bool wait, GameObject towerToAdd, float offset, int price)
+    public static IEnumerator WaitInput(bool wait, GameObject towerToAdd, float offset, int price, Color color)
     {
         Debug.Log("In Enum");
         while (wait)
@@ -43,7 +43,11 @@ public class AddTower1 : MonoBehaviour
                 {
                     Debug.Log(hit.point + " " + hit.normal * offset);
                     towerToAdd.transform.position = hit.point + hit.normal * offset;
-                    Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
+                    GameObject tower = Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
+                    tower.transform.GetChild(0).transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", color);
+                    tower.transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_Color", color);
+                    tower.transform.GetChild(0).transform.GetChild(2).GetComponent<Renderer>().material.SetColor("_Color", color);
+                    tower.transform.GetChild(0).transform.GetChild(4).GetComponent<Renderer>().material.SetColor("_Color", color);
                     GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
                     gm.money -= price;
                     Text money = GameObject.Find("txtMoney").GetComponent<Text>();
@@ -62,17 +66,17 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-            StartCoroutine(WaitInput(true, canonTower, offset, 10));
+            StartCoroutine(WaitInput(true, canonTower, offset, 10, Color.green));
     }
 
     public void addArrowTower()
     {
-        StartCoroutine(WaitInput(true, arrowTower, offset, 20));
+        StartCoroutine(WaitInput(true, arrowTower, offset, 20, Color.red));
     }
 
-    public void addCanonTower2()
+    public void addIceTower()
     {
-        StartCoroutine(WaitInput(true, canonTower2, offset, 20));
+        StartCoroutine(WaitInput(true, iceTower, offset, 20, Color.blue));
     }
     // Update is called once per frame
     void Update()

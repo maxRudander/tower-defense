@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.AI;
 public class bulletTower : MonoBehaviour
 {
 
@@ -14,9 +14,10 @@ public class bulletTower : MonoBehaviour
     public float aoeSize;
 
     public int aoeDmg;
-    // Use this for initialization
 
-    // Update is called once per frame
+    public float slowAmout;
+
+    public float slowDuration;
     void Update()
     {
 
@@ -42,9 +43,21 @@ public class bulletTower : MonoBehaviour
                     {
                         enemy.GetComponent<Skeleton>().lastBulletHit = gameObject;
                         enemy.GetComponent<Skeleton>().hpCurrent -= aoeDmg;
+                        if (!enemy.GetComponent<Skeleton>().isSlowed)
+                        {
+                            enemy.GetComponent<NavMeshAgent>().speed = 1;
+                            enemy.GetComponent<Skeleton>().currentMovementSpeed = enemy.GetComponent<NavMeshAgent>().speed;
+                            enemy.GetComponent<Skeleton>().slowDuration = slowDuration/1000;
+                        }
                         twr.totalDmgDone += aoeDmg;
                     }
                 }
+            }
+            if (!other.GetComponent<Skeleton>().isSlowed)
+            {
+                other.GetComponent<NavMeshAgent>().speed *=slowAmout;
+                other.GetComponent<Skeleton>().currentMovementSpeed = other.GetComponent<NavMeshAgent>().speed;
+                other.GetComponent<Skeleton>().slowDuration = slowDuration/1000;
             }
             other.GetComponent<Skeleton>().hpCurrent -= dmg;
             other.GetComponent<Skeleton>().lastBulletHit = gameObject;
@@ -52,7 +65,8 @@ public class bulletTower : MonoBehaviour
         }
     }
 
-    public void updateTowerKills(){
+    public void updateTowerKills()
+    {
         twr.kills++;
         Destroy(gameObject);
     }
