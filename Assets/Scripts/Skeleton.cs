@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Skeleton : MonoBehaviour
 {
+    
+   public Slider slider;
    public int hpMax;
    public int hpCurrent;
    public int level;
@@ -23,6 +26,8 @@ public class Skeleton : MonoBehaviour
    {
        currentMovementSpeed = movementSpeed;
        this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
+       slider.maxValue = hpMax;
+       slider.minValue = 0;
    }
 
    public void SetHpBasedOnLevel(int level)
@@ -53,6 +58,8 @@ public class Skeleton : MonoBehaviour
                 slowDuration = 1;
             }
         }
+
+        slider.value = hpCurrent;
 
 
        if(hpCurrent <= 0){
