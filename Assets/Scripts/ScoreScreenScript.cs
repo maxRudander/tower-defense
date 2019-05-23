@@ -8,10 +8,6 @@ public class ScoreScreenScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
-
-
         string t = "";
         t = "Your score was: \n\n" +
             "Creeps killed:" + "\n" +
@@ -20,15 +16,13 @@ public class ScoreScreenScript : MonoBehaviour
        
              this.gameObject.GetComponent<Text>().text = t;
 
+        // Should use PlayerPrefs.Get....
+        // This requires that we save the scores etc before we leave the primary game scene -> load in this scene
+
         // var myVariable : float;
-
         //PlayerPrefs.SetFloat("Player Score", 10.0);
-
         //myVariable = PlayerPrefs.GetFloat("Player Score");
-
         //print(myVariable);
-
-
     }
 
     // Update is called once per frame
