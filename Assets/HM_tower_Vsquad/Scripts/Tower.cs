@@ -69,6 +69,7 @@ public class Tower : MonoBehaviour
         b.GetComponent<bulletTower>().aoeDmg = aoeDmg;
         b.GetComponent<bulletTower>().slowAmout = slowAmout;
         b.GetComponent<bulletTower>().slowDuration = slowDuration;
+        Destroy(b, 10f);
 
 
         this.shotsFired++;
