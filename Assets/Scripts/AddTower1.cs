@@ -49,7 +49,7 @@ public class AddTower1 : MonoBehaviour
                     tower.transform.GetChild(0).transform.GetChild(2).GetComponent<Renderer>().material.SetColor("_Color", color);
                     tower.transform.GetChild(0).transform.GetChild(4).GetComponent<Renderer>().material.SetColor("_Color", color);
                     GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
-                    gm.money -= price;
+                    gm.ModifyMoney(-price);
                     Text money = GameObject.Find("txtMoney").GetComponent<Text>();
                     //money.text = gm.money.ToString();
                 }

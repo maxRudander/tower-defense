@@ -22,10 +22,10 @@ public class StatusScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        points.text = gameManager.GetPoints().ToString();
-        money.text = gameManager.GetMoney().ToString();
-        kills.text = gameManager.GetKills().ToString();
-        enemiesLeft.text = gameManager.GetEnemiesLeft().ToString();
-        wavesLeft.text = gameManager.GetWavesLeft().ToString();
+        points.text = gameManager.Score.ToString();
+        money.text = gameManager.Money.ToString();
+        kills.text = gameManager.NbrOfKills.ToString();
+        enemiesLeft.text = gameManager.MobsLeftInWave.ToString();
+        wavesLeft.text = gameManager.WavesLeft.ToString();
     }
 }
