@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Skeleton : MonoBehaviour
 {
+    
+   public Slider slider;
    public int hpMax;
    public int hpCurrent;
    public int level;
 
-   // Start is called before the first frame update
+   public int movementSpeed = 25;
+
+   public float currentMovementSpeed;
+
+   public float slowDuration;
+   
+   public bool isSlowed;
+
+   public GameObject lastBulletHit;
+
    void Start()
    {
-
+       currentMovementSpeed = movementSpeed;
+       this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
+       slider.maxValue = hpMax;
+       slider.minValue = 0;
    }
 
    public void SetHpBasedOnLevel(int level)
@@ -32,5 +47,26 @@ public class Skeleton : MonoBehaviour
        Animator an = this.gameObject.GetComponent<Animator>();
        an.SetBool("Running", true);
 
+        if(currentMovementSpeed != movementSpeed){
+            isSlowed = true;
+            slowDuration -= Time.deltaTime;
+            Debug.Log(slowDuration);
+            if(slowDuration < 0){
+                currentMovementSpeed = movementSpeed;
+                isSlowed = false;
+                this.gameObject.GetComponent<NavMeshAgent>().speed = movementSpeed;
+                slowDuration = 1;
+            }
+        }
+
+        slider.value = hpCurrent;
+
+
+       if(hpCurrent <= 0){
+           lastBulletHit.GetComponent<bulletTower>().updateTowerKills();
+           Destroy(gameObject);
+       }
    }
+
+   
 }

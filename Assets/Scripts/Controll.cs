@@ -15,15 +15,15 @@ public class Controll : MonoBehaviour
     void Update()
     {  
     
-        if (Input.mousePosition.x > Screen.width - 10 || Input.GetKey(KeyCode.D))
+        if ( Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        if (Input.mousePosition.x < 10 || Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        if (Input.mousePosition.y > Screen.height - 10 || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, Mathf.Sin((35* Mathf.PI)/180)*speed * Time.deltaTime , Mathf.Cos((35* Mathf.PI)/180)*speed * Time.deltaTime));
         }

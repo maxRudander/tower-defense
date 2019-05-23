@@ -6,6 +6,8 @@ public class SpawnEnemies : MonoBehaviour
 {
    public GameObject skeleton;
    public GameObject goal = null;
+
+   public GameObject folder;
    public int numberOfSkeletonsToSpawn = 10;
    private int nbrOfSpawnedSkeletons;
 
@@ -18,7 +20,7 @@ public class SpawnEnemies : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-       if (Input.GetKeyDown(KeyCode.S))
+       if (Input.GetKeyDown(KeyCode.N))
        {
            InvokeRepeating("spawnSkeletons", 0.0f, 0.5f);
        }
@@ -28,6 +30,7 @@ public class SpawnEnemies : MonoBehaviour
    {
        var obj = Instantiate(skeleton, transform.position, Quaternion.identity);
        obj.GetComponent<Skeleton>().setGoal(goal);
+       
        nbrOfSpawnedSkeletons++;
        if (nbrOfSpawnedSkeletons >= numberOfSkeletonsToSpawn)
        {
