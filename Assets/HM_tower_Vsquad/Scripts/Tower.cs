@@ -62,14 +62,20 @@ public class Tower : MonoBehaviour
         isShoot = true;
         yield return new WaitForSeconds(1000 / attackSpeed);
         GameObject b = GameObject.Instantiate(bullet, shootElement.position, Quaternion.identity) as GameObject;
-        b.GetComponent<bulletTower>().twr = this;
-        b.GetComponent<bulletTower>().target = target;
-        b.GetComponent<bulletTower>().dmg = dmg;
-        b.GetComponent<bulletTower>().aoeSize = aoeSize;
-        b.GetComponent<bulletTower>().aoeDmg = aoeDmg;
-        b.GetComponent<bulletTower>().slowAmout = slowAmout;
-        b.GetComponent<bulletTower>().slowDuration = slowDuration;
-        Destroy(b, 10f);
+        if (target!= null)
+        {
+            b.GetComponent<bulletTower>().twr = this;
+            b.GetComponent<bulletTower>().target = target;
+            b.GetComponent<bulletTower>().dmg = dmg;
+            b.GetComponent<bulletTower>().aoeSize = aoeSize;
+            b.GetComponent<bulletTower>().aoeDmg = aoeDmg;
+            b.GetComponent<bulletTower>().slowAmout = slowAmout;
+            b.GetComponent<bulletTower>().slowDuration = slowDuration;
+            Destroy(b, 10f);
+        }else{
+            Destroy(b);
+        }
+
 
 
         this.shotsFired++;

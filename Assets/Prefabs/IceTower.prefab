@@ -14725,7 +14725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 880.8986, y: 0, z: 688.0089}
+  m_LocalPosition: {x: 916.74396, y: 0, z: 763.04395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -14753,7 +14753,7 @@ MonoBehaviour:
   range: 20
   aoeDmg: 10
   aoeSize: 50
-  slowAmout: 1
+  slowAmout: 0.01
   slowDuration: 4000
   kills: 0
   shotsFired: 0
@@ -14768,7 +14768,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 100, y: 1, z: 100}
+  m_Extents: {x: 4, y: 1, z: 4}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1

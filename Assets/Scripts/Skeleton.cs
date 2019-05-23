@@ -24,6 +24,10 @@ public class Skeleton : MonoBehaviour
 
     public float distanceToDestination;
 
+    public float deathTime = 5.0f;
+
+    public bool isDead = false;
+
     void Start()
     {
         currentMovementSpeed = movementSpeed;
@@ -66,12 +70,19 @@ public class Skeleton : MonoBehaviour
         slider.value = hpCurrent;
 
 
-        if (hpCurrent <= 0)
+        if (hpCurrent <= 0 && !isDead)
         {
             lastBulletHit.GetComponent<bulletTower>().updateTowerKills();
-            Destroy(gameObject);
+            isDead = true;
         }
 
+        if (isDead)
+        {
+            this.gameObject.GetComponent<NavMeshAgent>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            this.gameObject.GetComponent<NavMeshAgent>().radius = 0;
+            an.Play("Death");
+            deathTime -= Time.deltaTime;
+        }
 
 
 
@@ -87,6 +98,11 @@ public class Skeleton : MonoBehaviour
         if (distanceToDestination < 1)
         {
             reachedDestination();
+        }
+
+        if (isDead && deathTime <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -13,15 +13,6 @@ public class TowerTrigger : MonoBehaviour
     {
         path = new NavMeshPath();
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy") && !lockE)
-        {
-            twr.target = other.gameObject.transform;
-            curTarget = other.gameObject;
-            lockE = true;
-        }
-    }
 
 
     void Update()
@@ -32,16 +23,19 @@ public class TowerTrigger : MonoBehaviour
         for (int i = enemies.Length - 1; i >= 0; i--)
         {
             GameObject enemy = enemies[i];
-            float radius = twr.transform.GetChild(0).transform.GetChild(3).GetComponent<SphereCollider>().radius;
-            float distToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
-            if (distToEnemy < radius)
+            if (!enemy.GetComponent<Skeleton>().isDead)
             {
-                float dist = enemy.GetComponent<Skeleton>().distanceToDestination;
-
-                if (dist < closestDist)
+                float radius = twr.transform.GetChild(0).transform.GetChild(3).GetComponent<SphereCollider>().radius;
+                float distToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
+                if (distToEnemy < radius)
                 {
-                    closestIndex = i;
-                    closestDist = dist;
+                    float dist = enemy.GetComponent<Skeleton>().distanceToDestination;
+
+                    if (dist < closestDist)
+                    {
+                        closestIndex = i;
+                        closestDist = dist;
+                    }
                 }
             }
         }
@@ -51,7 +45,8 @@ public class TowerTrigger : MonoBehaviour
 
             twr.target = enemies[closestIndex].gameObject.transform;
             curTarget = enemies[closestIndex].gameObject;
-            lockE = true;
+        }else{
+            twr.target = null;
         }
 
 
@@ -103,12 +98,6 @@ public class TowerTrigger : MonoBehaviour
 
         // }
     }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Enemy") && other.gameObject == curTarget)
-        {
-            lockE = false;
-        }
-    }
+
 
 }
