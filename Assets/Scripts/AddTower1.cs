@@ -9,7 +9,7 @@ public class AddTower1 : MonoBehaviour
 
     public GameObject canonTower;
 
-    public GameObject fireTower;
+    public GameObject arrowTower;
 
     public GameObject iceTower;
     public GameObject gameManager;
@@ -49,9 +49,12 @@ public class AddTower1 : MonoBehaviour
                     tower.transform.GetChild(0).transform.GetChild(2).GetComponent<Renderer>().material.SetColor("_Color", color);
                     tower.transform.GetChild(0).transform.GetChild(4).GetComponent<Renderer>().material.SetColor("_Color", color);
                     GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
-                    gm.money -= price;
+                    //gm.money -= price;
+					gm.ModifyMoney(-price);
                     Text money = GameObject.Find("txtMoney").GetComponent<Text>();
                     //money.text = gm.money.ToString();
+					int m = gm.Money;
+					money.text = m.ToString();
                 }
                 wait = false;
             }
@@ -66,17 +69,17 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-            StartCoroutine(WaitInput(true, canonTower, 10, Color.green));
+            StartCoroutine(WaitInput(true, canonTower, 10, Color.red));
     }
 
-    public void addFireTower()
+    public void addArrowTower()
     {
-        StartCoroutine(WaitInput(true, fireTower, 20, Color.red));
+        StartCoroutine(WaitInput(true, arrowTower, 20, Color.green));
     }
 
     public void addIceTower()
     {
-        StartCoroutine(WaitInput(true, iceTower, 50, Color.blue));
+        StartCoroutine(WaitInput(true, iceTower, 20, Color.blue));
     }
     // Update is called once per frame
     void Update()

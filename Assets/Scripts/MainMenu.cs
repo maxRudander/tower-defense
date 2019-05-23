@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void ButtonMapOne()
     {
+		SceneManager.LoadScene("RoosScene"); // Or (1) i.e. position in build
         Debug.Log("Map 1 button method");
         //GetComponent<Renderer>().material.color = Color.cyan;
     }
