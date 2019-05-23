@@ -14726,7 +14726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 723.24835, y: 0, z: 167.20422}
+  m_LocalPosition: {x: 800.53595, y: 0, z: 190.36656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -14750,16 +14750,19 @@ MonoBehaviour:
   LookAtObj: {fileID: 4165866241402844}
   bullet: {fileID: 1160152353821232}
   target: {fileID: 0}
+  gm: {fileID: 0}
   dmg: 10
-  attackSpeed: 2000
-  range: 40
-  aoeDmg: 5
-  aoeSize: 20
+  attackSpeed: 1000
+  range: 80
+  aoeDmg: 0
+  aoeSize: 0
   slowAmout: 1
   slowDuration: 0
   kills: 0
   shotsFired: 0
   totalDmgDone: 0
+  towerLevel: 0
+  price: 10
 --- !u!208 &3189264850835006037
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -14912,7 +14915,7 @@ GameObject:
   - component: {fileID: 1428609161111514262}
   m_Layer: 11
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: InfoTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14924,14 +14927,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992835193262110604}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2657691903022699705}
   m_Father: {fileID: 4509344712265162}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 100, y: 100}
@@ -15246,7 +15249,7 @@ GameObject:
   - component: {fileID: 2773357915698762286}
   - component: {fileID: 2053284885361002891}
   - component: {fileID: 4012913284137574628}
-  - component: {fileID: 3944497690722713549}
+  - component: {fileID: 7968034252428669394}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -15353,21 +15356,10 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2053284885361002891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3944497690722713549
+--- !u!114 &7968034252428669394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15379,6 +15371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ca745463d3f2944baeaff76d72dd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 4012913284137574628}
+  tower: {fileID: 1674050128692650}
 --- !u!1 &7195586284299603850
 GameObject:
   m_ObjectHideFlags: 0

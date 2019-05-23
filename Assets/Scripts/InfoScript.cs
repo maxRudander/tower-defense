@@ -15,30 +15,18 @@ public class InfoScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //if (!done) {
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit)) {
-        //        Debug.Log(hit.point + " ");
-        //        tower = hit.transform.gameObject;
-        //        //infoPanel.SetActive;
 
-
-
-
-        //        //  towerToAdd.transform.position = hit.point;
-        //        //GameObject tower = Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
-        //        //tower.transform.GetChild(0).transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", color);
-        //        //tower.transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_Color", color);
-        //        //tower.transform.GetChild(0).transform.GetChild(2).GetComponent<Renderer>().material.SetColor("_Color", color);
-        //        //tower.transform.GetChild(0).transform.GetChild(4).GetComponent<Renderer>().material.SetColor("_Color", color);
-        //    }
-        //}
     }
     public void setDone(bool done) {
         this.done = done;
     }
     public void checkForTower() {
-        Debug.Log("Check for tower");
+        Debug.Log("hejsa");
+        GameObject[] go = GameObject.FindGameObjectsWithTag("InfoTag");
+        for(int i = 0; i < go.Length; i++){
+            go[i].transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log("hejsa" +i);
+        }
         StartCoroutine(WaitInput(wait, tower));
     }
 
@@ -67,6 +55,8 @@ public class InfoScript : MonoBehaviour {
                         
                         GameObject infoPanel = tower.transform.GetChild(1).transform.GetChild(0).transform.gameObject;
                         infoPanel.transform.position = tower.transform.position + new Vector3(0.0f, 25.0f, 0.0f);
+                        infoPanel.transform.GetChild(3).transform.gameObject.GetComponent<Text>().text = tower.gameObject.GetComponent<Tower>().kills.ToString();
+                        infoPanel.transform.GetChild(4).transform.gameObject.GetComponent<Text>().text = tower.gameObject.GetComponent<Tower>().towerLevel.ToString();
                         infoPanel.SetActive(true);
                     }
                 }
