@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnEnemies : MonoBehaviour
 {
@@ -37,5 +38,7 @@ public class SpawnEnemies : MonoBehaviour
            CancelInvoke("spawnSkeletons");
            nbrOfSpawnedSkeletons = 0;
        }
+
+      
    }
 }
