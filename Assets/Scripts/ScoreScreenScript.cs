@@ -9,20 +9,13 @@ public class ScoreScreenScript : MonoBehaviour
     void Start()
     {
         string t = "";
+     
         t = "Your score was: \n\n" +
-            "Creeps killed:" + "\n" +
-            "Score: " + "\n" +
-            "Gold gained: " + "\n";
-       
-             this.gameObject.GetComponent<Text>().text = t;
+            "You " + PlayerPrefs.GetString("Result") + "\n" + // won/lost from PlayerPref
+            "Creeps killed:" + PlayerPrefs.GetInt("Kills") + "\n" +
+            "Creeps escaped:" + PlayerPrefs.GetInt("Escapees");
 
-        // Should use PlayerPrefs.Get....
-        // This requires that we save the scores etc before we leave the primary game scene -> load in this scene
-
-        // var myVariable : float;
-        //PlayerPrefs.SetFloat("Player Score", 10.0);
-        //myVariable = PlayerPrefs.GetFloat("Player Score");
-        //print(myVariable);
+        this.gameObject.GetComponent<Text>().text = t;
     }
 
     // Update is called once per frame
