@@ -15037,6 +15037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 7016341458314291534}
+  sellButton: {fileID: 0}
   tower: {fileID: 0}
 --- !u!1 &1992835193262110604
 GameObject:
@@ -15510,6 +15511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 4012913284137574628}
+  sellButton: {fileID: 7016341458314291534}
   tower: {fileID: 1674050128692650}
 --- !u!1 &7195586284299603850
 GameObject:

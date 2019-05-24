@@ -14727,7 +14727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 729.44006, y: 38.44787, z: 247.70868}
+  m_LocalPosition: {x: 811.99365, y: 0, z: 208.16583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -15374,6 +15374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 4012913284137574628}
+  sellButton: {fileID: 4265095083704353385}
   tower: {fileID: 1674050128692650}
 --- !u!1 &6146367151227338065
 GameObject:
@@ -15583,12 +15584,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6814053303015269224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4ca745463d3f2944baeaff76d72dd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 4265095083704353385}
+  button: {fileID: 4012913284137574628}
+  sellButton: {fileID: 4265095083704353385}
   tower: {fileID: 1674050128692650}
 --- !u!1 &7195586284299603850
 GameObject:
