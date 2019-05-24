@@ -19,7 +19,7 @@ public class bulletTower : MonoBehaviour
 
     public float slowDuration;
 
-    public GameObject explosion;
+
 
 
     void Update()
@@ -63,24 +63,15 @@ public class bulletTower : MonoBehaviour
             }
             other.GetComponent<Skeleton>().hpCurrent -= dmg;
             other.GetComponent<Skeleton>().lastBulletHit = gameObject;
-            if (explosion != null)
-            {
-                GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity);
-                float sqrAoeSize = aoeSize / 5;
-                for (int nbr = 0; nbr < exp.transform.childCount; nbr++)
-                {
-                    exp.transform.GetChild(nbr).localScale += new Vector3(sqrAoeSize, sqrAoeSize, sqrAoeSize);
-                    Destroy(exp.transform.GetChild(nbr).gameObject, 2.0f);
-                }               
-                Destroy(exp, 2.0f);
-            }
             twr.totalDmgDone += dmg;
         }
     }
 
     public void updateTowerKills()
     {
-        twr.kills++;
+        GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
+		gm.ReportKill();
+		twr.kills++;
         Destroy(gameObject);
     }
 

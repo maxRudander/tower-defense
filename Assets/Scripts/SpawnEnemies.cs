@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class SpawnEnemies : MonoBehaviour
 {
@@ -9,36 +8,61 @@ public class SpawnEnemies : MonoBehaviour
    public GameObject goal = null;
 
    public GameObject folder;
+   public GameManager gm;
    public int numberOfSkeletonsToSpawn = 10;
    private int nbrOfSpawnedSkeletons;
+   private bool spawnActive;
 
    // Start is called before the first frame update
    void Start()
    {
-       nbrOfSpawnedSkeletons = 0;
+       gm = GameObject.FindObjectsOfType<GameManager>()[0];
+	   numberOfSkeletonsToSpawn = gm.MobsLeftInWave;
+	   nbrOfSpawnedSkeletons = 0;
+	   spawnActive = true;
    }
 
    // Update is called once per frame
    void Update()
    {
-       if (Input.GetKeyDown(KeyCode.N))
+       //if (Input.GetKeyDown(KeyCode.N))
+	   if (spawnActive)
        {
            InvokeRepeating("spawnSkeletons", 0.0f, 0.5f);
+		   spawnActive = false;
        }
+	   else if (gm.MobsLeftInWave < 1)
+	   {
+		   Invoke("nextWave", 5.0f);
+	   }
    }
 
    void spawnSkeletons()
    {
        var obj = Instantiate(skeleton, transform.position, Quaternion.identity);
        obj.GetComponent<Skeleton>().setGoal(goal);
+	   obj.GetComponent<Skeleton>().SetHpBasedOnLevel(6-gm.WavesLeft); // i.e. level 1,2,3,4,5
        
        nbrOfSpawnedSkeletons++;
        if (nbrOfSpawnedSkeletons >= numberOfSkeletonsToSpawn)
        {
            CancelInvoke("spawnSkeletons");
-           nbrOfSpawnedSkeletons = 0;
-       }
+           //nbrOfSpawnedSkeletons = 0;
 
-      
+       }
+   }
+
+   void nextWave()
+   {
+   	   if (gm.WavesLeft > 0)
+	   {
+			gm.WaveCleared();
+	   	   numberOfSkeletonsToSpawn = numberOfSkeletonsToSpawn + gm.MobsLeftInWave;
+		   spawnActive = true;
+	   }
+	   else
+	   {
+	   	   //Victory!!
+	   }
    }
 }

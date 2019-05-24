@@ -24,7 +24,7 @@ public class Skeleton : MonoBehaviour
 
     public float distanceToDestination;
 
-    public float deathTime = 1.0f;
+    public float deathTime = 5.0f;
 
     public bool isDead = false;
 
@@ -39,6 +39,7 @@ public class Skeleton : MonoBehaviour
     public void SetHpBasedOnLevel(int level)
     {
         hpMax = hpMax * level;
+		this.level = level;
         hpCurrent = hpMax;
     }
 
@@ -102,8 +103,6 @@ public class Skeleton : MonoBehaviour
 
         if (isDead && deathTime <= 0)
         {
-            GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
-            gm.ModifyMoney(level);
             Destroy(gameObject);
         }
     }
@@ -133,6 +132,8 @@ public class Skeleton : MonoBehaviour
     private void reachedDestination()
     {
         Destroy(gameObject);
+		GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
+		gm.ReportEscape();
     }
 
     private void calculateDistance()
@@ -140,6 +141,10 @@ public class Skeleton : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
 
         this.gameObject.GetComponent<NavMeshAgent>().CalculatePath(this.gameObject.GetComponent<NavMeshAgent>().destination, path);
+
+        Debug.Log(this.gameObject.GetComponent<NavMeshAgent>().velocity);
+
+
 
         distanceToDestination = 0;
         for (int j = 1; j < path.corners.Length; ++j)
