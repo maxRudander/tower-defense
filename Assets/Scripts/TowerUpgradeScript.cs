@@ -31,7 +31,7 @@ public class TowerUpgradeScript : MonoBehaviour
         GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
         int level = tower.GetComponent<Tower>().towerLevel;
         int price = tower.GetComponent<Tower>().price;
-        int money = (int)0.5*level*(price+price*level)/2;
+        int money = (int)level*(price+price*level)/4;
         gm.ModifyMoney(money);
         Destroy(tower);
     }
