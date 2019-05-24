@@ -24,7 +24,7 @@ public class Skeleton : MonoBehaviour
 
     public float distanceToDestination;
 
-    public float deathTime = 5.0f;
+    public float deathTime = 1.0f;
 
     public bool isDead = false;
 
@@ -102,6 +102,8 @@ public class Skeleton : MonoBehaviour
 
         if (isDead && deathTime <= 0)
         {
+            GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
+            gm.ModifyMoney(level);
             Destroy(gameObject);
         }
     }
