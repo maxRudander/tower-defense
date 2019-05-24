@@ -4930,6 +4930,7 @@ MonoBehaviour:
   aoeDmg: 0
   slowAmout: 0
   slowDuration: 0
+  explosion: {fileID: 0}
 --- !u!65 &65469915428151416
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14726,7 +14727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 800.53595, y: 0, z: 190.36656}
+  m_LocalPosition: {x: 729.44006, y: 38.44787, z: 247.70868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -14773,7 +14774,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 2, y: 1, z: 2}
+  m_Extents: {x: 10, y: 1, z: 10}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1

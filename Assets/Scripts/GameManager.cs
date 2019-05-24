@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public GameObject TowerPrefab { get => TowerPrefab; set => TowerPrefab = value; }
-    private int money;
+    public int money;
 	private int nbrOfKills;
 	private int score;
 	private int mobsLeftInWave;
@@ -71,7 +71,6 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        money = 100;
 		mobsLeftInWave = 10;
 		wavesLeft = 5;
     }

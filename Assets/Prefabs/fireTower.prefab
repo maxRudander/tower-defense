@@ -4930,6 +4930,7 @@ MonoBehaviour:
   aoeDmg: 0
   slowAmout: 0
   slowDuration: 0
+  explosion: {fileID: 100006, guid: e076683e0305e35498b8e8834978c0fa, type: 3}
 --- !u!65 &65469915428151416
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14726,7 +14727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 864.3682, y: 0, z: 502.74896}
+  m_LocalPosition: {x: 903.2279, y: 0, z: 731.9289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}

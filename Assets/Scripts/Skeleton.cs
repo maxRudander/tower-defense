@@ -139,10 +139,6 @@ public class Skeleton : MonoBehaviour
 
         this.gameObject.GetComponent<NavMeshAgent>().CalculatePath(this.gameObject.GetComponent<NavMeshAgent>().destination, path);
 
-        Debug.Log(this.gameObject.GetComponent<NavMeshAgent>().velocity);
-
-
-
         distanceToDestination = 0;
         for (int j = 1; j < path.corners.Length; ++j)
         {

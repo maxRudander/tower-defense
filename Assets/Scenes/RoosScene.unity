@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46875c483ed68a643874688d8777e8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 2000
 --- !u!4 &779456355
 Transform:
   m_ObjectHideFlags: 0
@@ -1866,7 +1867,7 @@ MonoBehaviour:
     type: 3}
   goal: {fileID: 1698629882}
   folder: {fileID: 0}
-  numberOfSkeletonsToSpawn: 100
+  numberOfSkeletonsToSpawn: 1
 --- !u!1 &1197710497
 GameObject:
   m_ObjectHideFlags: 0
