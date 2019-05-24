@@ -401,7 +401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Points:'
+  m_Text: 'Score:'
 --- !u!222 &192906126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1130,6 +1130,7 @@ MonoBehaviour:
   kills: {fileID: 588118972}
   enemiesLeft: {fileID: 204185579}
   wavesLeft: {fileID: 481473377}
+  livesLeft: {fileID: 114350602}
   gameManager: {fileID: 779456354}
 --- !u!1 &699868698
 GameObject:
@@ -1239,6 +1240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46875c483ed68a643874688d8777e8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 200
+  lives: 1
 --- !u!4 &779456355
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,7 +1998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Waves left:'
+  m_Text: 'Lives left:'
 --- !u!222 &1144578172
 CanvasRenderer:
   m_ObjectHideFlags: 0

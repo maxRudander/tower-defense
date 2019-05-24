@@ -1,19 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+	
     public GameObject TowerPrefab { get => TowerPrefab; set => TowerPrefab = value; }
-    private int money;
+    public int money;
 	private int nbrOfKills;
 	private int nbrOfEscapes;
 	private int score;
 	private int mobsLeftInWave;
 	private int wavesLeft;
 
-
+	public int lives;
 
 
 
@@ -58,9 +60,10 @@ public class GameManager : Singleton<GameManager>
 		if ((money - change) >= 0 ) money = money+change;
 	}
 
-	void IncreaseScore (int points)
+	public void IncreaseScore (int points)
 	{
-		if (points > 0) score = score + points;
+		Debug.Log("score: " + score + " points: " + points);
+		score = score + points;
 	}
 
 	public void ReportKill ()
@@ -74,7 +77,8 @@ public class GameManager : Singleton<GameManager>
 	{
 		Debug.Log("Report" + nbrOfEscapes);
 		nbrOfEscapes = nbrOfEscapes + 1;
-		if (nbrOfEscapes >= 5) GameOver(false); // DEFEAT!! & return (remove hardcoded five)
+		lives--;
+		if (lives <= 0) GameOver(false); // DEFEAT!! & return (remove hardcoded five)
 		else
 		{
 			if (mobsLeftInWave > 0) mobsLeftInWave = mobsLeftInWave - 1;
@@ -85,11 +89,10 @@ public class GameManager : Singleton<GameManager>
 
 	public void WaveCleared()
 	{
-		if (wavesLeft < 1) GameOver(true); // WIN!! & return
+		if (wavesLeft <= 1) GameOver(true); // WIN!! & return
 		else 
 		{
 			wavesLeft = wavesLeft - 1;
-			mobsLeftInWave = (6 - wavesLeft)*10;
 		}
 		// set difficulty for next wave
 
@@ -101,6 +104,7 @@ public class GameManager : Singleton<GameManager>
 		string res;
 		if (won) res = "Won";
 		else res = "Lost";
+		PlayerPrefs.SetInt("Score", score);
 		PlayerPrefs.SetString("Result", res);
 		PlayerPrefs.SetInt("Kills", nbrOfKills);
 		PlayerPrefs.SetInt("Escapees", nbrOfEscapes);
@@ -110,13 +114,16 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        money = 100;
-		mobsLeftInWave = 10;
-		wavesLeft = 5;
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+	public void ModifyPoints(int v)
     {
         
     }

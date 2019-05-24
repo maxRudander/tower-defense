@@ -10,7 +10,7 @@ public class ScoreScreenScript : MonoBehaviour
     {
         string t = "";
      
-        t = "Your score was: \n\n" +
+        t = "Your score was:" + PlayerPrefs.GetInt("Score") +" \n\n" +
             "You " + PlayerPrefs.GetString("Result") + "\n" + // won/lost from PlayerPref
             "Creeps killed:" + PlayerPrefs.GetInt("Kills") + "\n" +
             "Creeps escaped:" + PlayerPrefs.GetInt("Escapees");

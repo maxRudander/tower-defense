@@ -28,6 +28,6 @@ public class StatusScript : MonoBehaviour
         kills.text = gameManager.NbrOfKills.ToString();
         enemiesLeft.text = gameManager.MobsLeftInWave.ToString();
         wavesLeft.text = gameManager.WavesLeft.ToString();
-        livesLeft.text = gameManager.lives.toString();
+        livesLeft.text = gameManager.lives.ToString();
     }
 }

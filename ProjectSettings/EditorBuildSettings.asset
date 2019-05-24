@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6cf7320d10814434d941e37c4936b8b9
+  - enabled: 1
+    path: Assets/Scenes/RoosScene.unity
+    guid: ac5565cb8101952489ac61d06816ee1a
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: 008a54e5c3620114b84882d295ff48c0
   m_configObjects: {}

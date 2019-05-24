@@ -14727,7 +14727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674050128692650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 782.8455, y: 93.22772, z: 460.30695}
+  m_LocalPosition: {x: 757.5966, y: -0.000015258789, z: 206.29922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458445124252350}
@@ -14752,8 +14752,8 @@ MonoBehaviour:
   bullet: {fileID: 1160152353821232}
   target: {fileID: 0}
   gm: {fileID: 0}
-  dmg: 10
-  attackSpeed: 1000
+  dmg: 30
+  attackSpeed: 2000
   range: 80
   aoeDmg: 0
   aoeSize: 0
