@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.AI;
 public class AddTower1 : MonoBehaviour
 {
 
@@ -44,15 +44,24 @@ public class AddTower1 : MonoBehaviour
                     Debug.Log(hit.point + " ");
                     towerToAdd.transform.position = hit.point;
                     GameObject tower = Instantiate(towerToAdd, towerToAdd.transform.position, Quaternion.identity);
-                    if (color != Color.green) {
+                    if (color != Color.green)
+                    {
                         tower.transform.GetChild(0).transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", color);
                         tower.transform.GetChild(0).transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_Color", color);
                         tower.transform.GetChild(0).transform.GetChild(2).GetComponent<Renderer>().material.SetColor("_Color", color);
                         tower.transform.GetChild(0).transform.GetChild(4).GetComponent<Renderer>().material.SetColor("_Color", color);
                     }
 
-                    
-                        GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
+                    Skeleton[] skeletons = GameObject.FindObjectsOfType<Skeleton>();
+                    NavMeshPath path;
+                    foreach (Skeleton s in skeletons)
+                    {
+                        path = new NavMeshPath();
+                        NavMeshAgent agent = s.gameObject.GetComponent<NavMeshAgent>();
+                        NavMesh.CalculatePath(agent.transform.position, agent.destination, NavMesh.AllAreas, path);
+                    }
+
+                    GameManager gm = GameObject.FindObjectsOfType<GameManager>()[0];
                     gm.ModifyMoney(-price);
                     Text money = GameObject.Find("txtMoney").GetComponent<Text>();
                     //money.text = gm.money.ToString();
@@ -70,7 +79,7 @@ public class AddTower1 : MonoBehaviour
 
     public void addCanonTower()
     {
-            StartCoroutine(WaitInput(true, canonTower, 10, Color.green));
+        StartCoroutine(WaitInput(true, canonTower, 10, Color.green));
     }
 
     public void addFireTower()

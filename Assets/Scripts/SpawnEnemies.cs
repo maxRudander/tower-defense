@@ -31,21 +31,21 @@ public class SpawnEnemies : MonoBehaviour
             id = 1,
             nbrOfMobs = 10,
             mobHp = 100,
-            mobSpeed = 100
+            mobSpeed = 50
         });
         levels.Add(new Level()
         {
             id = 2,
             nbrOfMobs = 10,
             mobHp = 200,
-            mobSpeed = 100
+            mobSpeed = 50
         });
         levels.Add(new Level()
         {
             id = 3,
             nbrOfMobs = 10,
-            mobHp = 100,
-            mobSpeed = 100
+            mobHp = 400,
+            mobSpeed = 25
         });
 
         gm.WavesLeft = levels.Count;
