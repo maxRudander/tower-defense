@@ -55,6 +55,7 @@ public class InfoScript : MonoBehaviour {
                         
                         GameObject infoPanel = tower.transform.GetChild(1).transform.GetChild(0).transform.gameObject;
                         infoPanel.transform.position = tower.transform.position + new Vector3(0.0f, 25.0f, 0.0f);
+                        infoPanel.transform.position = tower.transform.position + new Vector3(0.0f, 50.0f, 0.0f); //TEST
                         infoPanel.transform.GetChild(3).transform.gameObject.GetComponent<Text>().text = tower.gameObject.GetComponent<Tower>().kills.ToString();
                         infoPanel.transform.GetChild(4).transform.gameObject.GetComponent<Text>().text = tower.gameObject.GetComponent<Tower>().towerLevel.ToString();
                         infoPanel.SetActive(true);
