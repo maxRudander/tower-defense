@@ -89,7 +89,7 @@ public class Skeleton : MonoBehaviour
 
 
 
-        if (this.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < 1)
+        if (this.gameObject.GetComponent<NavMeshAgent>().velocity.sqrMagnitude < 1 && !isDead)
         {
             DestroyNearestTower();
         }
@@ -129,7 +129,7 @@ public class Skeleton : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, nearestTower.transform.position) < nearestTower.GetComponent<NavMeshObstacle>().radius + 2)
+        if (Vector3.Distance(gameObject.transform.position, nearestTower.transform.position) < nearestTower.GetComponent<NavMeshObstacle>().radius + 2.4)
         {
             Destroy(nearestTower);
         }
