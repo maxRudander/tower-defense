@@ -31,13 +31,13 @@ public class SpawnEnemies : MonoBehaviour
             id = 1,
             nbrOfMobs = 10,
             mobHp = 100,
-            mobSpeed = 50
+            mobSpeed = 25
         });
         levels.Add(new Level()
         {
             id = 2,
             nbrOfMobs = 10,
-            mobHp = 200,
+            mobHp = 100,
             mobSpeed = 50
         });
         levels.Add(new Level()
@@ -46,6 +46,20 @@ public class SpawnEnemies : MonoBehaviour
             nbrOfMobs = 10,
             mobHp = 400,
             mobSpeed = 25
+        });
+        levels.Add(new Level()
+        {
+            id = 4,
+            nbrOfMobs = 10,
+            mobHp = 400,
+            mobSpeed = 50
+        });
+        levels.Add(new Level()
+        {
+            id = 5,
+            nbrOfMobs = 1,
+            mobHp = 4000,
+            mobSpeed = 50
         });
 
         gm.WavesLeft = levels.Count;

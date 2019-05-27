@@ -47,7 +47,7 @@ public GameObject explosion;
                         enemy.GetComponent<Skeleton>().hpCurrent -= aoeDmg;
                         if (!enemy.GetComponent<Skeleton>().isSlowed)
                         {
-                            enemy.GetComponent<NavMeshAgent>().speed = 1;
+                            enemy.GetComponent<NavMeshAgent>().speed *= slowAmout;
                             enemy.GetComponent<Skeleton>().currentMovementSpeed = enemy.GetComponent<NavMeshAgent>().speed;
                             enemy.GetComponent<Skeleton>().slowDuration = slowDuration / 1000;
                         }
